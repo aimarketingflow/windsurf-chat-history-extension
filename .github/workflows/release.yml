@@ -1,0 +1,45 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Create Release Package
+      run: |
+        mkdir -p release
+        cp -r extension scripts docs install.sh README.md LICENSE package.json release/
+        cd release
+        zip -r ../windsurf-chat-backup-toolkit-${{ github.ref_name }}.zip .
+    
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: windsurf-chat-backup-toolkit-${{ github.ref_name }}.zip
+        body: |
+          ## Windsurf Chat Backup Toolkit ${{ github.ref_name }}
+          
+          ### Installation
+          1. Download the zip file
+          2. Extract it
+          3. Run `./install.sh`
+          
+          ### What's New
+          See CHANGELOG.md for details.
+          
+          ### Documentation
+          Open `docs/guide.html` in your browser.
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,52 @@
+{
+  "name": "@aimarketingflow/windsurf-chat-history-extension",
+  "version": "1.0.0",
+  "description": "Secure, local chat backups for Windsurf IDE. One-click backup with multiple methods.",
+  "main": "extension/extension.js",
+  "scripts": {
+    "install-extension": "echo 'Open Windsurf and install from extension/ folder'",
+    "install-desktop": "./install.sh",
+    "test": "echo 'No tests yet'",
+    "postinstall": "echo '✅ Windsurf Chat Backup Toolkit installed! Run: npm run install-desktop'"
+  },
+  "keywords": [
+    "windsurf",
+    "chat",
+    "backup",
+    "local",
+    "privacy",
+    "vscode",
+    "extension",
+    "ide",
+    "conversation",
+    "archive"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aimarketingflow/windsurf-chat-history-extension.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aimarketingflow/windsurf-chat-history-extension/issues"
+  },
+  "homepage": "https://github.com/aimarketingflow/windsurf-chat-history-extension#readme",
+  "engines": {
+    "vscode": "^1.80.0",
+    "node": ">=14.0.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "os": [
+    "darwin"
+  ],
+  "files": [
+    "extension/",
+    "scripts/",
+    "docs/",
+    "install.sh",
+    "README.md",
+    "LICENSE"
+  ]
+}

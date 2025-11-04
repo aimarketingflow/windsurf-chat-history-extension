@@ -1,0 +1,60 @@
+{
+  "name": "windsurf-chat-backup",
+  "displayName": "Windsurf Chat Backup",
+  "description": "Backup your Windsurf chat conversations with one click",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "windsurf-chat-backup.backupNow",
+        "title": "💾 Backup Chat Now",
+        "category": "Windsurf"
+      },
+      {
+        "command": "windsurf-chat-backup.backupAllChats",
+        "title": "💾 Backup All Open Chats",
+        "category": "Windsurf"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "windsurf-chat-backup.backupNow",
+          "when": "true"
+        },
+        {
+          "command": "windsurf-chat-backup.backupAllChats",
+          "when": "true"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "windsurf-chat-backup.backupNow",
+        "key": "ctrl+shift+b",
+        "mac": "cmd+shift+b",
+        "when": "true"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "16.x",
+    "eslint": "^8.41.0"
+  }
+}
